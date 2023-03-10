@@ -42,9 +42,9 @@ public class UpdateUserServlet extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			System.out.println(result);
 			if (result > 0) {
-				out.println("<h1>User added to Database</h1>");
+				out.println("<h1>User Password Updated to Database</h1>");
 			} else {
-				out.println("<h1>Error inserting the data</h1>");
+				out.println("<h1>Error updating the data</h1>");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
