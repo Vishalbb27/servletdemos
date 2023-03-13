@@ -7,6 +7,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,10 +22,14 @@ public class DeleteUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private Connection connection = null;
     
-    public void init() {
+    public void init(ServletConfig config) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb1", "root", "root");
+			ServletContext context=config.getServletContext();
+			String dburl=context.getInitParameter("dburl");
+			String dbpassword=context.getInitParameter("dbpassword");
+			String dbuser=context.getInitParameter("dbuser");
+			connection = DriverManager.getConnection(dburl,dbuser,dbpassword);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

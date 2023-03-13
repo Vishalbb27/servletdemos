@@ -9,13 +9,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//@WebServlet("/listuser") // Helps to eliminate the web mappings in the xml file
+@WebServlet("/listuser") // Helps to eliminate the web mappings in the xml file
 public class ListUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Connection connection;
@@ -24,9 +25,10 @@ public class ListUserServlet extends HttpServlet {
 		try {
 			
 			Class.forName("com.mysql.jdbc.Driver");
-			String dburl=config.getInitParameter("dburl");
-			String dbpassword=config.getInitParameter("dbpassword");
-			String dbuser=config.getInitParameter("dbuser");
+			ServletContext context=config.getServletContext();
+			String dburl=context.getInitParameter("dburl");
+			String dbpassword=context.getInitParameter("dbpassword");
+			String dbuser=context.getInitParameter("dbuser");
 			connection = DriverManager.getConnection(dburl,dbuser,dbpassword);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
