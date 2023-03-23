@@ -1,0 +1,38 @@
+package com.hibernatehelloworld.domain;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Guide {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long id;
+	
+	@Column(name="staff_id")
+	private String staffId;
+	private String name;
+	private Integer salary;
+	
+	@OneToMany(mappedBy="guide") //Bidirectional
+	private Set<Student> students = new HashSet<>();
+	
+	public Set<Student> getStudents() {
+		return students;
+	}
+	
+	public Guide() {}
+	public Guide(String staffId,String name, Integer salary) {
+		super();
+		this.name = name;
+		this.staffId = staffId;
+		this.salary = salary;
+	}
+}
