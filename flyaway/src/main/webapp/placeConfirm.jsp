@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Paid</h1>
+	<h3>${message }</h3>
+	<p>Click here to return to place <a href="PlaceController">Home Page</a>
 </body>
 </html>

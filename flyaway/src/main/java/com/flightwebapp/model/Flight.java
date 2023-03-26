@@ -1,10 +1,8 @@
 package com.flightwebapp.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,27 +11,47 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Flight {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private int id;
 	
 	public Flight() {
 		super();
 	}
 
-	public Flight(Airlines airline, Place sourcePlace, Place destinationPlace, LocalDateTime departureTime,
-			 List<TicketPrice> ticketPrices) {
+
+	public Flight(Airlines airline, Place sourcePlace, Place destinationPlace, LocalDate departureTime, int price) {
 		super();
 		this.airline = airline;
 		this.sourcePlace = sourcePlace;
 		this.destinationPlace = destinationPlace;
 		this.departureTime = departureTime;
-		this.ticketPrices = ticketPrices;
+		this.price = price;
 	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public int getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
 
 	public Airlines getAirline() {
 		return airline;
@@ -59,47 +77,32 @@ public class Flight {
 		this.destinationPlace = destinationPlace;
 	}
 
-	public LocalDateTime getDepartureTime() {
+	public LocalDate getDepartureTime() {
 		return departureTime;
 	}
 
-	public void setDepartureTime(LocalDateTime departureTime) {
+	public void setDepartureTime(LocalDate departureTime) {
 		this.departureTime = departureTime;
 	}
 
-	public List<TicketPrice> getTicketPrices() {
-		return ticketPrices;
-	}
 
-	public void setTicketPrices(List<TicketPrice> ticketPrices) {
-		this.ticketPrices = ticketPrices;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "airline_id")
 	private Airlines airline;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "source_place_id")
 	private Place sourcePlace;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "destination_place_id")
 	private Place destinationPlace;
 	
 	@Column(name = "departure_time")
-	private LocalDateTime departureTime;
-
-	@OneToMany(mappedBy="flight",cascade=CascadeType.ALL,orphanRemoval=true)
-	private List<TicketPrice> ticketPrices = new ArrayList<>();
+	private LocalDate departureTime;
 	
-	public void addTicketPrice(TicketPrice ticketPrice) {
-		ticketPrices.add(ticketPrice);
-		ticketPrice.setFlight(this);
-	}
+	@Column(name="price")
+	private int price;
 	
-	public void removeTicketPrice(TicketPrice ticketPrice) {
-		ticketPrices.remove(ticketPrice);
-		ticketPrice.setFlight(null);
-	}
+	
 }

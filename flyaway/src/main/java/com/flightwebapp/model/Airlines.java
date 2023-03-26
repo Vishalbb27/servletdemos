@@ -10,7 +10,15 @@ import javax.persistence.Id;
 public class Airlines {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private int id;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	@Column(name = "name")
 	private String name;

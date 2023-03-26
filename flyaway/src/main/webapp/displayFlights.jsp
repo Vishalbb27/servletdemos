@@ -14,6 +14,7 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+
 	<h2>Enter the places</h2>
 
 	<table style="border:1px solide black">
@@ -23,28 +24,24 @@
 			<th>Source</th>
 			<th>Destination</th>
 			<th>Date</th>
-			<th>TicketPrice</th>
-			<th>Delete</th>
-			<th>Update</th>
+			<th>Ticket Price</th>
+			<th>Total</th>
+			<th>Select Flight</th>
 		</tr>
-		<c:forEach var="flight" items="${flights}">
+		<c:forEach var="flight" items="${flightDetails}">
 			<tr>
-				<td>${flight.id }</td>
+				<td>F${flight.id }</td>
 				<td>${flight.airline.name }</td>
 				<td>${flight.sourcePlace.name }</td>
 				<td>${flight.destinationPlace.name }</td>
 				<td>${flight.departureTime }</td>
+				<td>${seats }</td>
 				<td>${flight.price }</td>
-				<td><a href="FlightUpdate?flightid=${flight.id }">Update</a></td>
-				<td><a href="FlightDelete?flightid=${flight.id }">Delete</a></td>
+				
+				<td><a href="UserLogin?flightid=${flight.id }">Select</a></td>
+
 			</tr>
 		</c:forEach>
 	</table>
-	<p>
-		Insert New Flight : <a href="FlightAdd">click here</a>
-	</p>
-	<p>
-		Back to Home Page <a href="home.jsp">click here</a>
-	</p>
 </body>
 </html>

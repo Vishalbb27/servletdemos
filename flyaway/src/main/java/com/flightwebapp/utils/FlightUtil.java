@@ -24,11 +24,5 @@ public class FlightUtil {
 		return sessionFactory;
 	}
 	
-	public AdLogin getAdminDetails() {
-		
-		
-		return null;
-		
-	}
 
 }
