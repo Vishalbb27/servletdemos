@@ -17,20 +17,21 @@
 <h3>Search your flights</h3>
 	<form action="SearchFlight" method="post">
 
-		<label>Source Place :</label> <select name="sourcePlace">
+		<label>From :</label> <select name="sourcePlace" required>
 			<c:forEach var="sourcePlace" items="${sourcePlaces}">
 				<option>${sourcePlace.name }
 			</c:forEach>
 		</select> 
-		<label>Destination Place :</label> <select name="destinationPlace">
+		<label>To :</label> <select name="destinationPlace" required>
 			<c:forEach var="destinationPlace" items="${destinationPlaces}">
 				<option>${destinationPlace.name }
 			</c:forEach>
 		</select> 
 		
-		<label>Departure Date :</label> <input type="date" name="date" />
-		 <label>Number of seats :</label> <input type="number" name="seats" /> 
+		<label>Departure Date :</label> <input type="date" name="date" required/>
+		 <label>Number of seats :</label> <input type="number" name="seats" required/> 
 		 <input type="submit" value="submit" />
+		 <p><a href="index.html">Back</a></p>
 	</form>
 </body>
 </html>

@@ -13,31 +13,30 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<h2>Airlines</h2>
+	<h1>Places</h1>
 
 	<table>
 		<tr>
 			<th>Id</th>
 			<th>Name</th>
-			<th>Country</th>
 			<th>Delete</th>
 			<th>Update</th>
 		</tr>
-		<c:forEach var="airline" items="${airlines}">
+		<c:forEach var="place" items="${places}">
 			<tr>
-				<td>${airline.id }</td>
-				<td>${airline.name }</td>
-				<td>${airline.country }
-				<td><a href="AirlineUpdate?airlineid=${airline.id }">Update</a></td>
-				<td><a href="AirlineDelete?airlineid=${airline.id }">Delete</a></td>
+				<td>${place.id }</td>
+				<td>${place.name }</td>
+				<td><a href="PlaceUpdate?placeid=${place.id }">Update</a></td>
+				<td><a href="PlaceDelete?placeid=${place.id }">Delete</a></td>
 			</tr>
 		</c:forEach>
 	</table>
 	<p>
-		Insert New Airline : <a style="background-color:white;color:blue;" href="insertAirline.html">click here</a>
+		Insert New Place : <a style="padding:5px 20px 5px 20px" href="insertPlace.html">Insert</a>
 	</p>
 	<p>
-		Back to Home Page <a style="background-color:white;color:blue;" href="home.jsp">click here</a>
+		<a  href="home.jsp">Home</a>
 	</p>
+	<p> <a style="color:red;background-color:white;border:1px solid red" href="adminLogin.html">Logout</a>
 </body>
 </html>

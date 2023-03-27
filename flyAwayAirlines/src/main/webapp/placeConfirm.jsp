@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3 >${message }</h3>
-	<p>Click here to return to Airline <a style="background-color:white;color:blue;" href="AirlineController">Home Page</a>
+	<h3 style="text-align:center">${message }</h3>
+	<p style="text-align:center">Click here to return to place <a href="PlaceController">Home Page</a>
 </body>
 </html>

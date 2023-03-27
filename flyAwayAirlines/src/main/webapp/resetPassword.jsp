@@ -9,11 +9,10 @@
 </head>
 <body>
 	<h3>Reset Password</h3>
-	<p>${LoginCredentials.email}</p>
 	<form method="post" action="ResetPassword">
-		<label>Enter New Password :</label> <input type="password" name="newpassword" /> <br>
+		<label>Enter New Password :</label> <input type="password" name="newpassword" required/> <br>
 		<input
-			type="submit" name="Reset Password" />
+			type="submit" name="Reset Password" required/>
 	</form>
 </body>
 </html>

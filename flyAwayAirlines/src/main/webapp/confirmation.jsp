@@ -18,14 +18,21 @@
 			<p>Address : ${user.address }</p>
 		</div>
 		<div class="flight-info">
-			<p>Source : ${user.flight.sourcePlace.name }</p>
-			<p>Destination : ${user.flight.destinationPlace.name }</p>
+			<h2>Flight Information</h2>
+			<p>From : ${user.flight.sourcePlace.name }</p>
+			<p>To   : ${user.flight.destinationPlace.name }</p>
 			<p>Departure Date : ${user.flight.departureTime }</p>
-			<p>Total Price : ${total}</p>
+			<p>Seats : ${seats }
+			<p>Ticket Price : ${total}</p>
 			
 		</div>
 	</div>
-	<a  href="payment.jsp">PAY</a>
+	<div style="display:block;text-align:center"><p style="vertical-align:center;background-color:green;display:inline;padding:20px 30px 15px 30px; margin:0px;border-radius:10px;">
+	<a style="color:white;font-size:20px;text-decoration:none;" href="payment.jsp">BOOK NOW</a>
+	</p>
+	
+	</div>
+	
 	
 </body>
 </html>

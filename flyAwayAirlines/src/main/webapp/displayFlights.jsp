@@ -30,7 +30,6 @@
 				<th>Destination</th>
 				<th>Date</th>
 				<th>Ticket Price</th>
-				<th>Total</th>
 				<th>Select Flight</th>
 			</tr>
 			<c:forEach var="flight" items="${flightDetails}">
@@ -40,7 +39,6 @@
 					<td>${flight.sourcePlace.name }</td>
 					<td>${flight.destinationPlace.name }</td>
 					<td>${flight.departureTime }</td>
-					<td>${seats }</td>
 					<td>${flight.price }</td>
 
 					<td><a href="UserLogin?flightid=${flight.id }">Select</a></td>

@@ -13,23 +13,26 @@
 <link href="form.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h1>FlyAway</h1>
-<h3>Search your flights</h3>
-	<form action="SearchFlight" method="post">
+	<form action="FlightUpdate" method="post">
 
-		<label>Source Place :</label> <select name="sourcePlace">
+
+		<label>Airlines :</label> <select name="airlines" required>
+			<c:forEach var="airline" items="${airlines}">
+				<option>${airline.name }
+			</c:forEach>
+		</select> 
+		<label>Source Place :</label> <select name="sourceplace" required>
 			<c:forEach var="sourcePlace" items="${sourcePlaces}">
 				<option>${sourcePlace.name }
 			</c:forEach>
 		</select> 
-		<label>Destination Place :</label> <select name="destinationPlace">
+		<label>Destination Place :</label><select name="destinationplace" required>
 			<c:forEach var="destinationPlace" items="${destinationPlaces}">
 				<option>${destinationPlace.name }
 			</c:forEach>
 		</select> 
-		
-		<label>Departure Date :</label> <input type="date" name="date" />
-		 <label>Number of seats :</label> <input type="number" name="seats" /> 
+		<label>Departure Date :</label> <input type="date" name="date" required/>
+		 <label>Ticket Price :</label> <input type="number" name="price" required/> 
 		 <input type="submit" value="submit" />
 	</form>
 </body>

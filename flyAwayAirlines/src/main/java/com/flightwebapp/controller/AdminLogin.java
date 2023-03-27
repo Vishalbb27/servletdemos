@@ -52,7 +52,7 @@ public class AdminLogin extends HttpServlet {
 		String passwordform = request.getParameter("password");
 
 
-		if (!((login.get(0)).getEmail() == emailform) && !((login.get(0)).getPassword() == passwordform)) {
+		if ((login.get(0).getEmail()).equals(emailform) && (login.get(0).getPassword()).equals(passwordform)) {
 			HttpSession usersession = request.getSession();
 			usersession.setAttribute("LoginCredentials", login.get(0));
 			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");

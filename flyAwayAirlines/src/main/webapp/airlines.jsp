@@ -34,10 +34,11 @@
 		</c:forEach>
 	</table>
 	<p>
-		Insert New Airline : <a style="background-color:white;color:blue;" href="insertAirline.html">click here</a>
+		Insert New Airline : <a style="color:white;padding:5px 20px 5px 20px" href="insertAirline.html">Insert</a>
 	</p>
 	<p>
-		Back to Home Page <a style="background-color:white;color:blue;" href="home.jsp">click here</a>
+		<a style="background-color:white;color:black;border:1px solid black" href="home.jsp">Home</a>
 	</p>
+	<p> <a style="color:red;background-color:white;border:1px solid red" href="adminLogin.html">Logout</a></p>
 </body>
 </html>
